@@ -72,3 +72,7 @@ class ReferralSerializer(serializers.ModelSerializer):
         data.update({'referred_to': masked})
         return data
  
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('username','first_name','last_name','referred_by_code','referral_code_self','incentives')

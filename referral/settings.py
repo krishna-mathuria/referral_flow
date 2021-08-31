@@ -99,6 +99,7 @@ DATABASES = {
 DJOSER = {
     'SERIALIZERS': {
         'user_create': 'authapp.serializer.UserCreateSerializer',
+        'current_user': 'authapp.serializer.UserSerializer',
     },
 }
 
