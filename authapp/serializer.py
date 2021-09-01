@@ -60,17 +60,17 @@ class ReferralSerializer(serializers.ModelSerializer):
         model = Referrals
         fields = ['referee','referred_to','referee_inc','referred_to_inc']
 
-    def validate(self, data):
-        user = data.get('referee')
-        user_obj = User.object.get(id = user).username
-        data.update({'referee':user_obj})
-        user2 = data.get('referred_to')
-        masked = User.objects.get(id = user2).username
-        lo = masked.find('@')
-        if lo>0:
-            masked = masked[0] + '*******' + masked[lo-1] + '@' + masked[lo+1] + "*****" + masked[-1]
-        data.update({'referred_to': masked})
-        return data
+    # def validate(self, data):
+    #     user = data.get('referee')
+    #     user_obj = User.object.get(id = user).username
+    #     data.update({'referee':user_obj})
+    #     user2 = data.get('referred_to')
+    #     masked = User.objects.get(id = user2).username
+    #     lo = masked.find('@')
+    #     if lo>0:
+    #         masked = masked[0] + '*******' + masked[lo-1] + '@' + masked[lo+1] + "*****" + masked[-1]
+    #     data.update({'referred_to': masked})
+    #     return data
  
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
