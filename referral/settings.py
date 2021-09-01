@@ -95,7 +95,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
+# Added custom serializers for the user creation and details
 DJOSER = {
     'SERIALIZERS': {
         'user_create': 'authapp.serializer.UserCreateSerializer',
